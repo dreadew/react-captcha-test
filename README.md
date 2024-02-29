@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# Пример работы с генератором каптчи из репозитория [https://github.com/dreadew/fastapi-captcha-generator]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Запуск проекта
 
-## Available Scripts
+Для начала вам нужно клонировать проект из репозитория [https://github.com/dreadew/fastapi-captcha-generator]
 
-In the project directory, you can run:
+```
+git clone https://github.com/dreadew/fastapi-captcha-generator
+```
 
-### `npm start`
+Затем в терминале/командной строке, находясь в папке с проектом запустить сервер с помощью команды:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+python main.py
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Далее клонируете этот репозиторий и в терминале/командной строке перейдите в папку с этим репозиторием и выполните команду:
 
-### `npm test`
+`npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Команда запустит приложение в режиме разработчика.\
+- Перейдите по ссылке [http://localhost:3000](http://localhost:3000) для того, чтобы открыть сайт в браузере.
 
-### `npm run build`
+## Настройка каптчи
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Настройка производится в файле captcha.tsx (src/components/captcha.tsx), для того, чтобы передать дополнительные парметры нужно изменить строчку 14:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+fetch('http://<адрес-сервера>/utils/captcha<парметры>')
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Параметры для запроса на генерацию каптчи
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- icons_count - количество иконок на изображении (> 0 && <= 5)
+- bg_height - высота изображения (>= 100 && <= 400)
+- bg_width - ширина изображения (>= 100 && <= 400)
